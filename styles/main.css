@@ -37,25 +37,66 @@ header .new {
 }
 
 /* WELCOME SCREEN */
+.welcome {
+    /* background-color: black; */
+    /* color: orange; */
+}
 .welcome-scr {
     display: flex;
     flex-direction: column;
     font-family: 'zorque';
     position: relative;
-    width: 500px;
-    height: 250px;
+    width: 350px;
+    height: 300px;
     align-items: center;
     border: solid;
     border-color:  rgb(255,83,73);
     margin: 50px auto; 
 }
 
-.welcome-btn {
+div #welcome-btn {
     background-color: green;
     font-family: 'zorque';
+    border-color:  rgb(255,83,73);
+    position: absolute;
+    bottom: 100px;
+    padding: 10px 20px;
+    margin: 0px;
+    display: flex;
 }
 
 .welcome-title {
+    text-decoration: underline rgb(255,83,73);
 }
 
 /* ANIMAL SCREEN */
+.animal {
+    display: none;
+    /* background-color: black; */
+    /* color: orange; */
+}
+
+.animal-scr {
+    /* display: hidden; */
+    flex-direction: column;
+    font-family: 'zorque';
+    position: relative;
+    width: 350px;
+    height: 300px;
+    align-items: center;
+    border: solid;
+    border-color:  rgb(255,83,73);
+    margin: 50px auto; 
+}
+
+.animal-title {
+    text-decoration: underline rgb(255,83,73);
+}
+
+#next-btn {
+    display: flex;
+    background-color: green;
+    font-family: 'zorque';
+    border-color:  rgb(255,83,73);
+    position: absolute;
+}
