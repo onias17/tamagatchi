@@ -8,7 +8,7 @@ body {
     margin: 0px;
 }
 
-/* HEADER */
+/* ---------- HEADER */
 .header {
     width: 100%;
     display: flex;
@@ -36,11 +36,8 @@ header .new {
     font-size: 14px;
 }
 
-/* WELCOME SCREEN */
-.welcome {
-    /* background-color: black; */
-    /* color: orange; */
-}
+/* ---------- WELCOME SCREEN */
+/* Screen */
 .welcome-scr {
     display: flex;
     flex-direction: column;
@@ -54,22 +51,24 @@ header .new {
     margin: 50px auto; 
 }
 
-div #welcome-btn {
-    background-color: green;
-    font-family: 'zorque';
-    border-color:  rgb(255,83,73);
-    position: absolute;
-    bottom: 100px;
-    padding: 10px 20px;
-    margin: 0px;
-    display: flex;
-}
-
+/* Screen Title */
 .welcome-title {
     text-decoration: underline rgb(255,83,73);
 }
 
-/* ANIMAL SCREEN */
+/* Welcome Button */
+#welcome-btn {
+    background-color: green;
+    font-family: 'zorque';
+    border-color:  rgb(255,83,73);
+    position: relative;
+    top: 80px;
+    padding: 10px 20px;
+    margin: 0px;
+}
+
+/* ---------- ANIMAL SCREEN */
+/* Screen */
 .animal {
     display: none;
     /* background-color: black; */
@@ -77,7 +76,7 @@ div #welcome-btn {
 }
 
 .animal-scr {
-    /* display: hidden; */
+    display: flex;
     flex-direction: column;
     font-family: 'zorque';
     position: relative;
@@ -89,14 +88,53 @@ div #welcome-btn {
     margin: 50px auto; 
 }
 
+/* Screen Title */
 .animal-title {
     text-decoration: underline rgb(255,83,73);
 }
 
+/* Name Input */
+.name-input {
+    margin: 20px;
+}
+
+/* Animal Dropdown */
+.dropdown-content {
+    /* position: relative;
+    display: inline-block; */
+    margin: 20px;
+}
+
+select:hover {
+    background-color: green;
+    border-color:  rgb(255,83,73);
+}
+
+/* Finish Button */
 #next-btn {
-    display: flex;
     background-color: green;
     font-family: 'zorque';
     border-color:  rgb(255,83,73);
-    position: absolute;
+    position: relative;
+    bottom: -20px;
+    padding: 10px 20px;
+    margin: 0px;
+}
+
+/* ---------- GAMEPLAY SCREEN */
+.gameplay {
+    font-family: 'zorque';
+    flex-direction: column;
+    position: relative;
+    width: 350px;
+    height: 300px;
+    align-items: center;
+    border: solid;
+    border-color:  rgb(255,83,73);
+    margin: 50px auto; 
+}
+
+.img {
+    display: absolute;
+    top: 50px;
 }
