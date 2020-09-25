@@ -134,7 +134,12 @@ select:hover {
     margin: 50px auto; 
 }
 
-.img {
-    display: absolute;
-    top: 50px;
+.animal-info {
+    display: flex;
+    justify-content: space-between;
 }
+/* 
+.animal-name {
+    display: relative;
+    left: 10px;
+} */

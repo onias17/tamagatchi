@@ -15,10 +15,11 @@ $('#next-btn').on('click', function() {
         $('.gameplay').css('display', 'flex')
     }
     let animalChoice = $('#dropdown').val();
-    if (animalChoice == 'Gorilla') {
-        $('img').replaceWith('<img src="./images/clipart2148598.png" width="100px" height="100px" alt="Gorilla"></img>')
+    console.log(animalChoice)
+    if (animalChoice == 'gorilla') {
+        $('img').replaceWith('<img src="../images/clipart2148598.png" width="100px" height="100px" alt="Gorilla">')
     }
-    const animalImg = $('src').text
+    // const animalImg = $('src').text
 })
 
 $('.new').on('click', function() {
