@@ -1,42 +1,63 @@
-// Time Interval
-let startTime = 60;
-let time = 60;
+// Global variables
+let startTime = 0;
+let time = 0;
 let animalChoice;
 let userName = $('#name').val(); 
-let randNum = Math.floor(Math.random() * (4) + 2);
+let randNum = Math.floor(Math.random() * (2) + 2);
 let timer;
+let gameOver = function() {
+    if(currentAniaml.hunger === 10) {
+        clearInterval(timer);
+        alert(`GAME OVER!\n\n${userName} became too hungry and died on the football field of lack on energy.`)
+        return;
+    } else if(currentAniaml.sleepiness === 10) {
+        clearInterval(timer);
+        alert(`GAME OVER!\n\n${userName} became too tired and died of sleep exhaustion.`);
+        return;
+    } else if(currentAniaml.boredom === 10) {
+        clearInterval(timer);
+        alert(`GAME OVER!\n\n${userName} became too bored of football and decided to quit.`);
+        return;
+    }
+}
 
 const startTimer = function() {
     timer = setInterval(function() {
-        if (time === 1){
-            clearInterval(timer);
-            alert('GAME OVER!')
-        }
-        time--;
-        if(currentAniaml.hunger === 10) {
-            clearInterval(timer);
-            alert(`GAME OVER!\n\n${userName} became too hungry and died on the football field of lack on energy.`)
-            return;
-        } else if(currentAniaml.sleepiness === 10) {
-            clearInterval(timer);
-            alert(`GAME OVER!\n\n${userName} became too tired and died of sleep exhaustion.`);
-            return;
-        } else if(currentAniaml.boredom === 10) {
-            clearInterval(timer);
-            alert(`GAME OVER!\n\n${userName} became too bored of football and decided to quit.`);
-            return;
-        }
+        time++;
+        gameOver();
         if(time % 5 === 0) {
             currentAniaml.boredom++;
             $('.boredom').text(`Boredom: ${currentAniaml.boredom}`);
-            currentAniaml.hunger++;
+            if(currentAniaml.hunger < 11){
+                currentAniaml.hunger++;
+            }
             $('.hunger').text(`Hunger: ${currentAniaml.hunger}`);
-            currentAniaml.sleepiness++;
+            if(currentAniaml.sleepiness < 11){
+                currentAniaml.sleepiness++;
+            }
             $('.sleepiness').text(`Sleepiness: ${currentAniaml.sleepiness}`)
         }
         if(time % 10 === 0){
             currentAniaml.age++;
             $('.animal-age').text(`Age: ${currentAniaml.age}`)
+        }
+        if(currentAniaml.age === 4){
+            if (animalChoice === 'gorilla') {
+                $('img').replaceWith('<img src="./images/pngwave.png" width="100px" height="100px" alt="Gorilla">')
+            } else if(animalChoice == 'lion') {
+                $('img').replaceWith('<img src="./images/toppng.com-lions-vector-animated-clip-art-of-lions-612x928.png" width="100px" height="100px" alt="Lion">')
+            } else if(animalChoice == 'rhino') {
+                $('img').replaceWith('<img src="./images/pngegg.png" width="100px" height="100px" alt="Rhino">')
+            }
+        }
+        if(currentAniaml.age === 7){
+            if (animalChoice === 'gorilla') {
+                $('img').replaceWith('<img src="./images/pngfuel.com.png" width="100px" height="100px" alt="Gorilla">')
+            } else if(animalChoice == 'lion') {
+                $('img').replaceWith('<img src="./images/kissclipart-brisbane-lions-clipart-brisbane-lions-2e26870991820eb0.png" width="100px" height="100px" alt="Lion">')
+            } else if(animalChoice == 'rhino') {
+                $('img').replaceWith('<img src="././images/kisspng-leeds-rhinos-rugby-europe-international-championsh-football-theme-5b36233beec270.444725551530274619978.png" width="100px" height="100px" alt="Rhino">')
+            }
         }
         $('.time').text(`Time: ${time}s`);
     }, 1000);
@@ -46,9 +67,9 @@ const startTimer = function() {
 class Animal {
     constructor() {
         this.age = 1;
-        this.boredom = Math.floor(Math.random() * (4) + 2);
-        this.hunger = Math.floor(Math.random() * (4) + 2);
-        this.sleepiness = Math.floor(Math.random() * (4) + 2);
+        this.boredom = 0;
+        this.hunger = 0;
+        this.sleepiness = 0;
     }
 }
 
@@ -104,8 +125,6 @@ $('#exercise').on('click', function() {
         $('.boredom').text(`Boredom: ${currentAniaml.boredom}`) 
         currentAniaml.hunger++;
         $('.hunger').text(`Hunger: ${currentAniaml.hunger}`);
-        currentAniaml.sleepiness++;
-        $('.sleepiness').text(`Sleepiness: ${currentAniaml.sleepiness}`);
     }
     $('body').css('background', 'rgb(135, 206, 235)')
 })
@@ -114,8 +133,8 @@ $('#sleep').on('click', function() {
     if (currentAniaml.sleepiness >= 1 && currentAniaml.sleepiness <= 10) {
         currentAniaml.sleepiness--;
         $('.sleepiness').text(`Sleepiness: ${currentAniaml.sleepiness}`)
-        currentAniaml.hunger++;
-        $('.hunger').text(`Hunger: ${currentAniaml.hunger}`);
+        currentAniaml.boredom++;
+        $('.boredom').text(`Hunger: ${currentAniaml.boredom}`);
     }   
     $('body').css('background', 'rgb(43, 47, 119)')
 
@@ -126,14 +145,15 @@ $('.new').on('click', function() {
     $('.gameplay').css('display', 'none')
     $('body').css('background', 'rgb(135, 206, 235)')
     clearInterval(timer)
-    time = 60;
+    time = 0;
     $('.time').text(`Time: ${time}s`);
     $('.welcome-scr').css('display', 'flex')
     $('#name').val('');
     $('#dropdown').val('');
-    $('.boredom').text(`Boredom: ${currentAniaml.boredom = randNum}`);
-    $('.hunger').text(`Hunger: ${currentAniaml.hunger = randNum}`);
-    $('.sleepiness').text(`Sleepiness: ${currentAniaml.sleepiness = randNum}`);
+    $('.animal-age').text(`Age: ${currentAniaml.age = 1}`)
+    $('.boredom').text(`Boredom: ${currentAniaml.boredom = 0}`);
+    $('.hunger').text(`Hunger: ${currentAniaml.hunger = 0}`);
+    $('.sleepiness').text(`Sleepiness: ${currentAniaml.sleepiness = 0}`);
 })
 
 
