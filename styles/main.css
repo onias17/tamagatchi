@@ -122,24 +122,44 @@ select:hover {
 }
 
 /* ---------- GAMEPLAY SCREEN */
+/* Screen */
 .gameplay {
+    display: none;
     font-family: 'zorque';
     flex-direction: column;
     position: relative;
     width: 350px;
     height: 300px;
-    align-items: center;
+    /* align-items: center; */
     border: solid;
     border-color:  rgb(255,83,73);
     margin: 50px auto; 
 }
 
+/* Gameplay Header */
 .animal-info {
     display: flex;
     justify-content: space-between;
+    padding: 20px;
 }
-/* 
-.animal-name {
-    display: relative;
-    left: 10px;
-} */
+
+/* Image */
+.animal-img {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Gameplay Buttons */
+.gameplayBtns {
+    display: flex;
+    justify-content: space-around;
+    padding: 10px;
+}
+
+.gameBtn {
+    background-color: green;
+    font-family: 'zorque';
+    border-color:  rgb(255,83,73);
+}
