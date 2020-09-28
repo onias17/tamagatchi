@@ -18,13 +18,13 @@ Player will have the opportunity to evolve and advanced their animal from high s
 
 ### Wireframes
 Welcome Screen:
-img[]
+img[./images/photo_2020-09-28 08.38.26.jpeg]
 
 Setup Screen:
-img[]
+img[./images/photo_2020-09-28 08.38.23.jpeg]
 
 Gamplay Screen:
-img[]
+img[./images/photo_2020-09-28 08.38.29.jpeg]
 
 #### Technologies
 • HTML - used to markup the app with text and directions of the app.

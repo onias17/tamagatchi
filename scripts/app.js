@@ -178,6 +178,7 @@ $('.new').on('click', function() {
     $('.boredom').text(`Boredom: ${currentAniaml.boredom = 0}`);
     $('.hunger').text(`Hunger: ${currentAniaml.hunger = 0}`);
     $('.sleepiness').text(`Sleepiness: ${currentAniaml.sleepiness = 0}`);
+    $('#move').css('animation-duration', 'infinite')
 })
 
 
