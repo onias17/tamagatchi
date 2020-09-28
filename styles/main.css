@@ -151,6 +151,11 @@ select:hover {
     align-items: center;
 }
 
+img {
+    animation-direction: alternate;
+    transform: alternate;
+}
+
 /* Gameplay Buttons */
 .gameplayBtns {
     display: flex;
@@ -162,4 +167,9 @@ select:hover {
     background-color: green;
     font-family: 'zorque';
     border-color:  rgb(255,83,73);
+}
+
+.instructions {
+    width: 450px;
+    text-align: left;
 }

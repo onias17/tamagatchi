@@ -8,7 +8,7 @@ let timer;
 let gameOver = function() {
     if(currentAniaml.hunger === 10) {
         clearInterval(timer);
-        alert(`GAME OVER!\n\n${userName} became too hungry and died on the football field of lack on energy.`)
+        alert(`GAME OVER!\n\n${userName} became too hungry and died of starvation.`)
         return;
     } else if(currentAniaml.sleepiness === 10) {
         clearInterval(timer);
@@ -16,7 +16,7 @@ let gameOver = function() {
         return;
     } else if(currentAniaml.boredom === 10) {
         clearInterval(timer);
-        alert(`GAME OVER!\n\n${userName} became too bored of football and decided to quit.`);
+        alert(`GAME OVER!\n\n${userName} became too bored and died of isanity.`);
         return;
     }
 }
@@ -110,32 +110,53 @@ $('#next-btn').on('click', function() {
 
 // Gameplay Screen
 $('#eat').on('click', function() {
-    if (currentAniaml.hunger >= 1 && currentAniaml.hunger <= 10) {
+    if(currentAniaml.hunger === 1) {
         currentAniaml.hunger--;
-        $('.hunger').text(`Hunger: ${currentAniaml.hunger}`) 
+        $('.hunger').text(`Hunger: ${currentAniaml.hunger}`)
         currentAniaml.sleepiness++;
         $('.sleepiness').text(`Sleepiness: ${currentAniaml.sleepiness}`);
+    } else if(currentAniaml.hunger >= 2 && currentAniaml.hunger <= 10) {
+        currentAniaml.hunger -= 2;
+        $('.hunger').text(`Hunger: ${currentAniaml.hunger}`)
+        currentAniaml.sleepiness++;
+        $('.sleepiness').text(`Sleepiness: ${currentAniaml.sleepiness}`);
+    } else {
+        return;
     }
     $('body').css('background', 'rgb(135, 206, 235)');
 })
 
 $('#exercise').on('click', function() {
-    if (currentAniaml.boredom >= 1 && currentAniaml.boredom <= 10) {
+    if(currentAniaml.boredom === 1) {
         currentAniaml.boredom--;
-        $('.boredom').text(`Boredom: ${currentAniaml.boredom}`) 
+        $('.boredom').text(`Boredom: ${currentAniaml.boredom}`)
         currentAniaml.hunger++;
         $('.hunger').text(`Hunger: ${currentAniaml.hunger}`);
+    } else if(currentAniaml.boredom >= 2 && currentAniaml.boredom <= 10) {
+        currentAniaml.boredom -= 2;
+        $('.boredom').text(`Boredom: ${currentAniaml.boredom}`)
+        currentAniaml.hunger++;
+        $('.hunger').text(`Hunger: ${currentAniaml.hunger}`);
+    } else {
+        return;
     }
     $('body').css('background', 'rgb(135, 206, 235)')
 })
 
 $('#sleep').on('click', function() {
-    if (currentAniaml.sleepiness >= 1 && currentAniaml.sleepiness <= 10) {
+    if(currentAniaml.sleepiness === 1) {
         currentAniaml.sleepiness--;
         $('.sleepiness').text(`Sleepiness: ${currentAniaml.sleepiness}`)
         currentAniaml.boredom++;
-        $('.boredom').text(`Hunger: ${currentAniaml.boredom}`);
-    }   
+        $('.boredom').text(`Boredom: ${currentAniaml.boredom}`);
+    } else if(currentAniaml.sleepiness >= 2 && currentAniaml.sleepiness <= 10) {
+        currentAniaml.sleepiness -= 2;
+        $('.sleepiness').text(`Sleepiness: ${currentAniaml.sleepiness}`)
+        currentAniaml.boredom++;
+        $('.boredom').text(`Boredom: ${currentAniaml.boredom}`);
+    } else {
+        return;
+    }
     $('body').css('background', 'rgb(43, 47, 119)')
 
 })
