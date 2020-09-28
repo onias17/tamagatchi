@@ -8,14 +8,17 @@ let timer;
 let gameOver = function() {
     if(currentAniaml.hunger === 10) {
         clearInterval(timer);
+        $('#move').css('animation-duration', '0s')
         alert(`GAME OVER!\n\n${userName} became too hungry and died of starvation.`)
         return;
     } else if(currentAniaml.sleepiness === 10) {
         clearInterval(timer);
+        $('#move').css('animation-duration', '0s')
         alert(`GAME OVER!\n\n${userName} became too tired and died of sleep exhaustion.`);
         return;
     } else if(currentAniaml.boredom === 10) {
         clearInterval(timer);
+        $('#move').css('animation-duration', '0s')
         alert(`GAME OVER!\n\n${userName} became too bored and died of isanity.`);
         return;
     }

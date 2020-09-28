@@ -152,7 +152,7 @@ select:hover {
 }
 
 #move {
-    /* animation-direction: alternate; */
+    animation-direction: alternate;
     animation-name: leftRight;
     animation-duration: 10s;
     animation-iteration-count: infinite;
@@ -164,7 +164,7 @@ select:hover {
     }
 
     to {
-        margin-left: 75%;
+        margin-left: 70%;
     }
 }
 
