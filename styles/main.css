@@ -147,13 +147,25 @@ select:hover {
 .animal-img {
     height: 100%;
     display: flex;
-    justify-content: center;
+    /* justify-content: center; */
     align-items: center;
 }
 
-img {
-    animation-direction: alternate;
-    transform: alternate;
+#move {
+    /* animation-direction: alternate; */
+    animation-name: leftRight;
+    animation-duration: 10s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes leftRight {
+    from {
+        margin-left: 0;
+    }
+
+    to {
+        margin-left: 75%;
+    }
 }
 
 /* Gameplay Buttons */
