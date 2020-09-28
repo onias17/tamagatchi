@@ -113,55 +113,54 @@ $('#next-btn').on('click', function() {
 
 // Gameplay Screen
 $('#eat').on('click', function() {
-    if(currentAniaml.hunger === 1) {
+    if(currentAniaml.hunger === 10 || currentAniaml.sleepiness === 10 || currentAniaml.boredom === 10) {
+        return;
+    } else if(currentAniaml.hunger === 1 && currentAniaml.sleepiness < 10) {
         currentAniaml.hunger--;
         $('.hunger').text(`Hunger: ${currentAniaml.hunger}`)
         currentAniaml.sleepiness++;
         $('.sleepiness').text(`Sleepiness: ${currentAniaml.sleepiness}`);
-    } else if(currentAniaml.hunger >= 2 && currentAniaml.hunger <= 10) {
+    } else if(currentAniaml.hunger >= 2 && currentAniaml.hunger < 10 && currentAniaml.sleepiness < 10) {
         currentAniaml.hunger -= 2;
         $('.hunger').text(`Hunger: ${currentAniaml.hunger}`)
         currentAniaml.sleepiness++;
         $('.sleepiness').text(`Sleepiness: ${currentAniaml.sleepiness}`);
-    } else {
-        return;
-    }
+    }  
     $('body').css('background', 'rgb(135, 206, 235)');
 })
 
 $('#exercise').on('click', function() {
-    if(currentAniaml.boredom === 1) {
+    if(currentAniaml.boredom === 10 || currentAniaml.hunger === 10 || currentAniaml.sleepiness === 10) {
+        return;
+    } else if(currentAniaml.boredom === 1 && currentAniaml.hunger < 10) {
         currentAniaml.boredom--;
         $('.boredom').text(`Boredom: ${currentAniaml.boredom}`)
         currentAniaml.hunger++;
         $('.hunger').text(`Hunger: ${currentAniaml.hunger}`);
-    } else if(currentAniaml.boredom >= 2 && currentAniaml.boredom <= 10) {
+    } else if(currentAniaml.boredom >= 2 && currentAniaml.boredom < 10 && currentAniaml.hunger < 10) {
         currentAniaml.boredom -= 2;
         $('.boredom').text(`Boredom: ${currentAniaml.boredom}`)
         currentAniaml.hunger++;
         $('.hunger').text(`Hunger: ${currentAniaml.hunger}`);
-    } else {
-        return;
     }
     $('body').css('background', 'rgb(135, 206, 235)')
 })
 
 $('#sleep').on('click', function() {
-    if(currentAniaml.sleepiness === 1) {
+    if(currentAniaml.sleepiness === 10 || currentAniaml.boredom === 10 || currentAniaml.hunger === 10) {
+        return;
+    } else if(currentAniaml.sleepiness === 1 && currentAniaml.boredom < 10) {
         currentAniaml.sleepiness--;
         $('.sleepiness').text(`Sleepiness: ${currentAniaml.sleepiness}`)
         currentAniaml.boredom++;
         $('.boredom').text(`Boredom: ${currentAniaml.boredom}`);
-    } else if(currentAniaml.sleepiness >= 2 && currentAniaml.sleepiness <= 10) {
+    } else if(currentAniaml.sleepiness >= 2 && currentAniaml.sleepiness < 10 && currentAniaml.boredom < 10) {
         currentAniaml.sleepiness -= 2;
         $('.sleepiness').text(`Sleepiness: ${currentAniaml.sleepiness}`)
         currentAniaml.boredom++;
         $('.boredom').text(`Boredom: ${currentAniaml.boredom}`);
-    } else {
-        return;
     }
     $('body').css('background', 'rgb(43, 47, 119)')
-
 })
 
 // New Game
