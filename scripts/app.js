@@ -19,7 +19,7 @@ let gameOver = function() {
     } else if(currentAniaml.boredom === 10) {
         clearInterval(timer);
         $('#move').css('animation-duration', '0s')
-        alert(`GAME OVER!\n\n${userName} became too bored and died of isanity.`);
+        alert(`GAME OVER!\n\n${userName} became too bored and died of insanity.`);
         return;
     }
 }
@@ -178,7 +178,7 @@ $('.new').on('click', function() {
     $('.boredom').text(`Boredom: ${currentAniaml.boredom = 0}`);
     $('.hunger').text(`Hunger: ${currentAniaml.hunger = 0}`);
     $('.sleepiness').text(`Sleepiness: ${currentAniaml.sleepiness = 0}`);
-    $('#move').css('animation-duration', 'infinite')
+    $('#move').css('animation-duration', '10s')
 })
 
 
