@@ -166,6 +166,7 @@ $('#sleep').on('click', function() {
 // New Game
 $('.new').on('click', function() {
     $('.gameplay').css('display', 'none')
+    $('.animal').css('display', 'none')
     $('body').css('background', 'rgb(135, 206, 235)')
     clearInterval(timer)
     time = 0;
